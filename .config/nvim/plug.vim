@@ -3,8 +3,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'ryanoasis/vim-devicons'
     Plug 'tpope/vim-commentary'
+    
+    " colors
+    Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'ful1e5/onedark.nvim'
     Plug 'overcache/NeoSolarized'	
+
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 

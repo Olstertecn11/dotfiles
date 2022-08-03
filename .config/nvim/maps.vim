@@ -4,6 +4,7 @@ nmap <Leader>q :q<CR>
 nmap <Leader>w :w<CR>
 nmap <Leader>vv :put<CR> 
 nmap <Leader>wq :wq<CR>
+nmap <silent>q :wq!<CR>
 nmap <Leader>t :t.<CR>
 nmap<leader>sal :%y <CR>
 map<A-w> :><CR>
@@ -53,6 +54,7 @@ map <Leader>so :source %<CR>
 map <Leader>rc :Lspsaga open_floaterm ./compile.sh<CR>
 map <Leader>rp :Lspsaga open_floaterm ./compile.sh<CR>
 " autocmd filetype cpp nnoremap <Leader>rc :!g++ -std=c++11 %:p -o %:p:r :Lspsaga open_floaterm ./%:p:r<CR>
+autocmd Filetype python nnoremap <Leader>rq :!python3 %<CR>
 
 
 "autocomplete

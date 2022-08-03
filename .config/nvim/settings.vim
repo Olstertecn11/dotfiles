@@ -6,12 +6,14 @@ set ruler
 set clipboard=unnamedplus
 set encoding=UTF-8
 set showmatch
+set cursorline
 set sw=2
 set laststatus=2
 set backspace=2
 set background=dark
 set termguicolors
-let g:neosolarized_termtrans=1
+let g:neosolarized_termtrans=0.5
+" colorscheme onedark
 colorscheme NeoSolarized
 let mapleader = " "
 set showtabline=2
