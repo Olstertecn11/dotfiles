@@ -33,11 +33,15 @@ packer.startup(function(use)
 
 
   -- Tressiter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ':TSUpdate',
+      config = function() require('nvim-treesitter.configs').setup({
+        ensure_installed = { "lua" },
+        sync_install = true,
+        auto_install = true,
+      }) end,
+    }
 
 
   --Auto Pairs
