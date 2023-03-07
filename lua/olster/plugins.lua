@@ -9,7 +9,6 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
   --Packer
   use('wbthomason/packer.nvim')
-
   -- Lualine
   use {
     'nvim-lualine/lualine.nvim',
@@ -24,7 +23,6 @@ packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-
   -- Commentary
   use {
       'numToStr/Comment.nvim',
@@ -32,6 +30,20 @@ packer.startup(function(use)
           require('Comment').setup()
       end
   }
+
+
+  -- Tressiter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
+
+
+
+  --Auto Pairs
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
+
 
 end)
 
