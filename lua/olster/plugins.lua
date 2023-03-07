@@ -15,6 +15,7 @@ packer.startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use "nvim-tree/nvim-web-devicons"
 
   -- Telescope
   use {
@@ -56,9 +57,25 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
 
-
+  -- Lspsaga
+  use({
+      "glepnir/lspsaga.nvim",
+      branch = "main",
+      config = function()
+          require("lspsaga").setup({})
+      end,
+      requires = {
+          {"nvim-tree/nvim-web-devicons"},
+          --Please make sure you install markdown and markdown_inline parser
+          {"nvim-treesitter/nvim-treesitter"}
+      }
+  })
+  -- Snippets
   use 'hrsh7th/cmp-vsnip'
   use 'hrsh7th/vim-vsnip'
+
+
+  -- Colorscheme
   use { "catppuccin/nvim", as = "catppuccin" }
 end)
 
