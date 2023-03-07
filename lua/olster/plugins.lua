@@ -79,5 +79,12 @@ packer.startup(function(use)
   -- Colorscheme
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'folke/lsp-colors.nvim'
+
+
+  -- Lspkind
+  use 'onsails/lspkind.nvim'
+
+
+  -- Nav
   use 'simrat39/symbols-outline.nvim'
 end)

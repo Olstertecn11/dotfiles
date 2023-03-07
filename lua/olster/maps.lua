@@ -23,3 +23,7 @@ map('n', '<A-w>', ':><CR>')
 map('n', '<A-q>', ':<<CR>')
 map('', 'sh', ':<C-w>h')
 map('', 'sl', ':<C-w>l')
+
+
+-- Symbols
+map('n', '<leader>tb', ':SymbolsOutline<CR>')
