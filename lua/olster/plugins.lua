@@ -21,28 +21,29 @@ packer.startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
     -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   -- Commentary
   use {
-      'numToStr/Comment.nvim',
-      config = function()
-          require('Comment').setup()
-      end
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
   }
 
 
   -- Tressiter
-    use {
-      "nvim-treesitter/nvim-treesitter",
-      run = ':TSUpdate',
-      config = function() require('nvim-treesitter.configs').setup({
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ':TSUpdate',
+    config = function() require('nvim-treesitter.configs').setup({
         ensure_installed = { "lua" },
         sync_install = true,
         auto_install = true,
-      }) end,
-    }
+      })
+    end,
+  }
 
 
   --Auto Pairs
@@ -59,16 +60,16 @@ packer.startup(function(use)
 
   -- Lspsaga
   use({
-      "glepnir/lspsaga.nvim",
-      branch = "main",
-      config = function()
-          require("lspsaga").setup({})
-      end,
-      requires = {
-          {"nvim-tree/nvim-web-devicons"},
-          --Please make sure you install markdown and markdown_inline parser
-          {"nvim-treesitter/nvim-treesitter"}
-      }
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+    requires = {
+      { "nvim-tree/nvim-web-devicons" },
+      --Please make sure you install markdown and markdown_inline parser
+      { "nvim-treesitter/nvim-treesitter" }
+    }
   })
   -- Snippets
   use 'hrsh7th/cmp-vsnip'
@@ -77,5 +78,6 @@ packer.startup(function(use)
 
   -- Colorscheme
   use { "catppuccin/nvim", as = "catppuccin" }
+  use 'folke/lsp-colors.nvim'
+  use 'simrat39/symbols-outline.nvim'
 end)
-

@@ -110,6 +110,16 @@ _G.packer_plugins = {
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
+  ["lsp-colors.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-colors.nvim",
+    url = "https://github.com/folke/lsp-colors.nvim"
+  },
   ["lspsaga.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0" },
     loaded = true,
@@ -120,6 +130,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["navigator.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\navigator.lua",
+    url = "https://github.com/ray-x/navigator.lua"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -137,7 +152,7 @@ _G.packer_plugins = {
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
-    config = { "\27LJ\2\n‰\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\2\17sync_install\2\17auto_install\2\1\2\0\0\blua\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\n‰\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\2\17auto_install\2\17sync_install\2\1\2\0\0\blua\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
@@ -181,7 +196,7 @@ try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K
 time([[Config for Comment.nvim]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\n‰\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\2\17sync_install\2\17auto_install\2\1\2\0\0\blua\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\n‰\1\0\0\4\0\6\0\t6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\2B\0\2\1K\0\1\0\21ensure_installed\1\0\2\17auto_install\2\17sync_install\2\1\2\0\0\blua\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Config for: lspsaga.nvim
 time([[Config for lspsaga.nvim]], true)
