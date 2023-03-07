@@ -1,7 +1,7 @@
 require("catppuccin").setup({
     flavour = "mocha", -- latte, frappe, macchiato, mocha
     background = { -- :h background
-        light = "latte",
+        light = "macchiato",
         dark = "mocha",
     },
     transparent_background = true,
@@ -34,7 +34,7 @@ require("catppuccin").setup({
         cmp = true,
         gitsigns = true,
         nvimtree = true,
-        telescope = true,
+        telescope = false,
         notify = false,
         mini = false,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
