@@ -1,5 +1,5 @@
 
-local saga = require('lspsaga') 
+local saga = require('lspsaga')
 
 saga.setup {
   error_sign = '',

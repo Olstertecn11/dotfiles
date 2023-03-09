@@ -110,15 +110,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
-  ["guihua.lua"] = {
-    loaded = true,
-    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\guihua.lua",
-    url = "https://github.com/ray-x/guihua.lua"
-  },
   ["lsp-colors.nvim"] = {
     loaded = true,
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
+  },
+  ["lsp-status.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-status.nvim",
+    url = "https://github.com/nvim-lua/lsp-status.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lspsaga.nvim"] = {
     config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0" },
@@ -130,11 +135,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["navigator.lua"] = {
-    loaded = true,
-    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\navigator.lua",
-    url = "https://github.com/ray-x/navigator.lua"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -176,6 +176,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["symbols-outline.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\olste\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\symbols-outline.nvim",
+    url = "https://github.com/simrat39/symbols-outline.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

@@ -87,4 +87,6 @@ packer.startup(function(use)
 
   -- Nav
   use 'simrat39/symbols-outline.nvim'
+
+  use 'nvim-lua/lsp-status.nvim'
 end)
