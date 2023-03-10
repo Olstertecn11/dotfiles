@@ -1,10 +1,12 @@
 vim.cmd("autocmd!")
 
 vim.o.relativenumber = true
+vim.opt.mouse = a
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
+vim.cmd.colorscheme('tokyonight-moon')
 
 vim.wo.number = true
 vim.wo.cursorline = true;
