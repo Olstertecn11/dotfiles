@@ -50,9 +50,19 @@ packer.startup(function(use)
     run = ':TSUpdate'
   }
 
+  -- Autopairs
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
+
+  -- Nav
+  use({
+    'ray-x/navigator.lua',
+    requires = {
+      { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+      { 'neovim/nvim-lspconfig' },
+    },
+  })
 
 end)
