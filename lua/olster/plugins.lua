@@ -16,6 +16,20 @@ packer.startup(function(use)
 
 
 
+  -- colorschemes
   use { "catppuccin/nvim", as = "catppuccin" }
   use 'folke/tokyonight.nvim'
+
+
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+
+
+
+
+
 end)
