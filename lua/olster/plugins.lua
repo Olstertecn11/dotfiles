@@ -8,13 +8,13 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
   use 'nvim-lualine/lualine.nvim'
-  use 'kyazdani42/nvim-web-devicons' 
+  use 'kyazdani42/nvim-web-devicons'
 
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  } 
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 
 
 
@@ -26,11 +26,11 @@ packer.startup(function(use)
   use {
     'numToStr/Comment.nvim',
     config = function()
-        require('Comment').setup()
+      require('Comment').setup()
     end
   }
 
-  use {'neoclide/coc.nvim', branch = 'release'}
+  use { 'neoclide/coc.nvim', branch = 'release' }
 
   use 'neovim/nvim-lspconfig'
 
@@ -55,6 +55,8 @@ packer.startup(function(use)
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
+
+  use { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' }
 
   -- Nav
   use({
