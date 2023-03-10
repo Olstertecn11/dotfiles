@@ -17,4 +17,5 @@ packer.startup(function(use)
 
 
   use { "catppuccin/nvim", as = "catppuccin" }
+  use 'folke/tokyonight.nvim'
 end)
