@@ -80,4 +80,8 @@ packer.startup(function(use)
     }
   })
 
+
+  -- Lsp kind
+  use 'onsails/lspkind-nvim'
+
 end)
