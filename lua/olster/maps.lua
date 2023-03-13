@@ -27,3 +27,4 @@ map('', 'sl', ':<C-w>l')
 
 -- Symbols
 map('n', '<leader>tb', ':SymbolsOutline<CR>')
+map('n', '<leader>rne', ':Lspsaga rename<CR>')
