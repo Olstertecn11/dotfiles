@@ -1,5 +1,8 @@
 local nvim_lsp = require('lspconfig')
 
+
+
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local protocol = require 'vim.lsp.protocol'
@@ -64,7 +67,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'ccls', 'vimls', 'luals', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'ccls', 'vimls', 'lua_ls', 'rust_analyzer', 'tsserver' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -72,4 +75,14 @@ for _, lsp in ipairs(servers) do
       debounce_text_changes = 150,
     }
   }
+end
+
+
+local win = require('lspconfig.ui.windows')
+local _default_opts = win.default_opts
+
+win.default_opts = function(options)
+  local opts = _default_opts(options)
+  opts.border = 'single'
+  return opts
 end
