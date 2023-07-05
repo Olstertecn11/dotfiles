@@ -1,0 +1,17 @@
+{
+  "languagesserver":{
+    "Lua":{
+      "workspace.library":{
+        "C:/Users/olste/AppData/Local/Programs/Neovim/share/nvim/runtime/lua",
+        "C:/Users/olste/AppData/Local/Programs/Neovim/share/nvim/runtime/lua/vim",
+        "C:/Users/olste/AppData/Local/Programs/Neovim/share/nvim/runtime/lua/vim/lsp"
+      },
+      "diagnostics":{
+        "globals": ["vim"]
+      }
+    }
+  },
+  "emmet.includeLanguages":{
+    "htmldjango": "html",
+  }
+}
