@@ -58,7 +58,7 @@ nvim_lsp.tsserver.setup {
     on_attach(client, bufnr)
     enable_format_on_save(client, bufnr)
   end,
-  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript" },
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
   cmd = { "typescript-language-server", "--stdio" },
 }
 
@@ -77,6 +77,13 @@ nvim_lsp.sqlls.setup {
   end,
   cmd = { "sql-language-server", "up", "--method", "--stdio" },
   filetypes = { "sql", "mysql" }
+}
+
+nvim_lsp.asm_lsp.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end,
 }
 
 
@@ -123,7 +130,24 @@ nvim_lsp.cssls.setup {
   single_file_support = true
 }
 
+require 'lspconfig'.csharp_ls.setup {
+  cmd = { "csharp-ls" },
+  filetypes = { "cs" },
+  AutomaticWorkspaceInit = true
+}
 
+
+nvim_lsp.dartls.setup {
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true
+  },
+}
 
 
 nvim_lsp.pylsp.setup {
