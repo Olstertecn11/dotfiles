@@ -27,6 +27,7 @@ packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
 
   use 'norcalli/nvim-colorizer.lua'
+  use 'liuchengxu/vista.vim'
 
 
   use { 'neoclide/coc.nvim', branch = 'release' }
@@ -38,7 +39,7 @@ packer.startup(function(use)
     },
     tag = 'nightly'
   }
-  use 'simrat39/symbols-outline.nvim'
+  use 'preservim/tagbar'
   use "folke/neodev.nvim"
   use {
     'numToStr/Comment.nvim',
@@ -46,7 +47,6 @@ packer.startup(function(use)
       require('Comment').setup()
     end
   }
-
 
   use({
     "aurum77/live-server.nvim",
