@@ -15,6 +15,8 @@ map('n', '<leader>w', ':w<CR>')
 map('n', '<leader>q', ':q<CR>')
 map('n', '<leader>wq', ':wq!<CR>')
 map('i', 'kk', '<Esc>')
+map('i', '<A-w>', '>')
+map('i', '<A-q>', '<')
 
 
 -- Telescope

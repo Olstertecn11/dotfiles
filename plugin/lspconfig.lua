@@ -51,6 +51,13 @@ protocol.CompletionItemKind = {
 }
 
 
+nvim_lsp.astro.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end,
+  cmd = { "astro-ls", "--stdio" }
+}
 
 
 nvim_lsp.tsserver.setup {
@@ -76,7 +83,8 @@ nvim_lsp.sqlls.setup {
     enable_format_on_save(client, bufnr)
   end,
   cmd = { "sql-language-server", "up", "--method", "--stdio" },
-  filetypes = { "sql", "mysql" }
+  filetypes = { "sql", "mysql" },
+  root_dir = function() return vim.loop.cwd() end
 }
 
 nvim_lsp.asm_lsp.setup {
@@ -149,6 +157,24 @@ nvim_lsp.dartls.setup {
   },
 }
 
+nvim_lsp.rust_analyzer.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end
+}
+
+
+nvim_lsp.jsonls.setup {
+  on_attach = function(client, bufnr)
+    on_attach(client, bufnr)
+    enable_format_on_save(client, bufnr)
+  end
+}
+
+
+
+
 
 nvim_lsp.pylsp.setup {
   on_attach = function(client, bufnr)
@@ -166,6 +192,9 @@ nvim_lsp.pylsp.setup {
     }
   }
 }
+
+
+
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

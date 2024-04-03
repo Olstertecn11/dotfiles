@@ -14,5 +14,6 @@
   "emmet.includeLanguages":{
     "htmldjango": "html",
   },
-  "zig.zls.path": "C:\\Users\\olste\\AppData\\Local\\coc\\extensions\\coc-zls-data\\zls_install\\zls.exe"
+  "zig.zls.path": "C:\\Users\\olste\\AppData\\Local\\coc\\extensions\\coc-zls-data\\zls_install\\zls.exe",
+  "snippets.ultisnips.pythonPrompt": false
 }

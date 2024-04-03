@@ -48,6 +48,16 @@ packer.startup(function(use)
     end
   }
 
+  use('yuchanns/phpfmt.nvim')
+
+
+  use({
+    "startup-nvim/startup.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  })
+
+
+
   use({
     "aurum77/live-server.nvim",
     run = function()
