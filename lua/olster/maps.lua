@@ -24,6 +24,7 @@ map('n', '<leader>fl', ':Telescope find_files<CR>')
 map('n', '<leader>fs', ':Telescope live_grep<CR>')
 map('n', '<leader>gc', ':Telescope git_commits<CR>')
 map('n', '<leader>ld', ':Lspsaga peek_definition<CR>')
+map('n', '<leader>kd', ':Telescope current_buffer_fuzzy_find<CR>')
 map('n', '<A-w>', ':><CR>')
 map('n', '<A-q>', ':<<CR>')
 map('', 'sh', ':<C-w>h')
@@ -31,7 +32,7 @@ map('', 'sl', ':<C-w>l')
 
 
 -- Symbols
-map('n', '<leader>tb', ':SymbolsOutline<CR>')
+map('n', '<leader><F8>', ':CocList outline<CR>')
 map('n', '<leader>lre', ':Lspsaga rename<CR>')
 
 map('n', '<leader>nt', ':NvimTreeOpen<CR>')
@@ -43,3 +44,9 @@ map('n', '<leader>vx', ':lua require"treesitter-unit".select()<CR>')
 map('n', '<leader>vd', ':lua require"treesitter-unit".delete()<CR>')
 map('n', '<leader>vc', ':lua require"treesitter-unit".change()<CR>')
 map('n', '<leader>re', ':lua require"nvim_rename".rename()<CR>')
+vim.api.nvim_set_keymap('n', '<leader>fi', ":HopChar1<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fr', ":HopLine<CR>", { noremap = true, silent = true })
+
+
+vim.api.nvim_set_keymap('n', '<Tab>', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>cl', ':bdelete<CR>', { noremap = true, silent = true })

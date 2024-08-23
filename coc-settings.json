@@ -1,18 +1,28 @@
 {
-  "languagesserver":{
-    "Lua":{
-      "workspace.library":{
+  "languagesserver": {
+    "blade-css": {
+      "command": "css-languagesserver",
+      "filetypes": [
+        "blade"
+      ],
+      "settings": {}
+    },
+    "Lua": {
+      "workspace.library": {
         "C:/Users/olste/AppData/Local/Programs/Neovim/share/nvim/runtime/lua",
         "C:/Users/olste/AppData/Local/Programs/Neovim/share/nvim/runtime/lua/vim",
         "C:/Users/olste/AppData/Local/Programs/Neovim/share/nvim/runtime/lua/vim/lsp"
       },
-      "diagnostics":{
-        "globals": ["vim"]
+      "diagnostics": {
+        "globals": [
+          "vim"
+        ]
       }
     }
   },
-  "emmet.includeLanguages":{
+  "emmet.includeLanguages": {
     "htmldjango": "html",
+    "blade": "html"
   },
   "zig.zls.path": "C:\\Users\\olste\\AppData\\Local\\coc\\extensions\\coc-zls-data\\zls_install\\zls.exe",
   "snippets.ultisnips.pythonPrompt": false

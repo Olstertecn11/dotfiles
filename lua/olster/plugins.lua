@@ -15,7 +15,6 @@ packer.startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
 
-  use 'glepnir/lspsaga.nvim' -- LSP UIs
   use {
     'nvim-treesitter/nvim-treesitter',
     run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
@@ -27,18 +26,11 @@ packer.startup(function(use)
   use 'windwp/nvim-ts-autotag'
 
   use 'norcalli/nvim-colorizer.lua'
-  use 'liuchengxu/vista.vim'
 
 
   use { 'neoclide/coc.nvim', branch = 'release' }
   use 'folke/tokyonight.nvim'
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly'
-  }
+  use 'nvim-tree/nvim-tree.lua'
   use 'preservim/tagbar'
   use "folke/neodev.nvim"
   use {
@@ -57,7 +49,43 @@ packer.startup(function(use)
   })
 
 
+  use {
+    'echasnovski/mini.indentscope',
+    config = function()
+      require('mini.indentscope').setup({
+        -- Aquí puedes añadir cualquier configuración adicional que necesites
+      })
+    end
+  }
 
+
+  use 'jwalton512/vim-blade'
+  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require('bufferline').setup {}
+    end
+  }
+
+  use({
+    "stevearc/aerial.nvim",
+    config = function()
+      require("aerial").setup()
+    end,
+  })
+
+
+
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+    config = function()
+      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    end
+  }
+
+
+
+  use 'mfussenegger/nvim-dap'
   use({
     "aurum77/live-server.nvim",
     run = function()

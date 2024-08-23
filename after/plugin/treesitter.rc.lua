@@ -16,10 +16,7 @@ ts.setup {
     "css",
     "html",
     "lua"
-  },
-  autotag = {
-    enable = true,
-  },
+  }
 }
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()

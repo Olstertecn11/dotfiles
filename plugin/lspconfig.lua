@@ -87,12 +87,7 @@ nvim_lsp.sqlls.setup {
   root_dir = function() return vim.loop.cwd() end
 }
 
-nvim_lsp.asm_lsp.setup {
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    enable_format_on_save(client, bufnr)
-  end,
-}
+
 
 
 nvim_lsp.lua_ls.setup {
@@ -138,11 +133,7 @@ nvim_lsp.cssls.setup {
   single_file_support = true
 }
 
-require 'lspconfig'.csharp_ls.setup {
-  cmd = { "csharp-ls" },
-  filetypes = { "cs" },
-  AutomaticWorkspaceInit = true
-}
+
 
 
 nvim_lsp.dartls.setup {
@@ -195,6 +186,10 @@ nvim_lsp.pylsp.setup {
 
 
 
+require 'lspconfig'.vimls.setup {
+  cmd = { "vim-language-server", "--stdio" },
+  filetypes = { "vim" }
+}
 
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
