@@ -34,3 +34,4 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append { '**' } -- Finding files - Search down into subfolders
 vim.opt.wildignore:append { '*/node_modules/*' }
 vim.g.tagbar_ctags_bin = 'C:\\Program Files\\ctags\\ctags.exe'
+vim.opt.isfname:append({ '(', ')' })

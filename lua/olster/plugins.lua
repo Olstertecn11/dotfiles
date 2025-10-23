@@ -14,6 +14,7 @@ packer.startup(function(use)
   use 'neovim/nvim-lspconfig'     -- LSP
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use "EdenEast/nightfox.nvim" -- Packer
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -84,8 +85,10 @@ packer.startup(function(use)
   }
 
 
+  use 'sphamba/smear-cursor.nvim'
 
   use 'mfussenegger/nvim-dap'
+  use 'github/copilot.vim'
   use({
     "aurum77/live-server.nvim",
     run = function()
@@ -93,4 +96,15 @@ packer.startup(function(use)
     end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
   })
+  use({
+    "kylechui/nvim-surround",
+    tag = "*"
+  })
+
+  use 'AlexvZyl/nordic.nvim'
+  use { "scottmckendry/cyberdream.nvim" }
+
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end }
 end)

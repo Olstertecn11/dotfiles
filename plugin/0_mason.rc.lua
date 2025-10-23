@@ -6,7 +6,3 @@ if (not status2) then return end
 mason.setup({
 
 })
-
-lspconfig.setup {
-  automatic_installation = true
-}
