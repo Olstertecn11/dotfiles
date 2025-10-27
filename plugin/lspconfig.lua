@@ -3,6 +3,7 @@
 -- =========================
 local protocol = require("vim.lsp.protocol")
 
+-- Formato automático al guardar
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 local enable_format_on_save = function(_, bufnr)
   vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
@@ -15,13 +16,14 @@ local enable_format_on_save = function(_, bufnr)
   })
 end
 
+-- Función on_attach general
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = { noremap = true, silent = true }
-  -- tus keymaps aquí si quieres
+  -- Tus keymaps personalizados aquí si los quieres
 end
 
--- Icons para completion
+-- Iconos para autocompletado
 protocol.CompletionItemKind = {
   "", "", "", "", "", "", "", "ﰮ", "", "",
   "", "", "", "", "﬌", "", "", "", "", "",
@@ -29,7 +31,7 @@ protocol.CompletionItemKind = {
 }
 
 -- =========================
--- Servidores
+-- Configuración de servidores
 -- =========================
 local servers = {
   astro = {
@@ -100,7 +102,9 @@ local servers = {
   },
 }
 
--- Registrar y habilitar todos
+-- =========================
+-- Registrar y habilitar todos (API nueva 0.11+)
+-- =========================
 for server, config in pairs(servers) do
   vim.lsp.config(server, vim.tbl_extend("force", config, {
     on_attach = function(client, bufnr)
@@ -112,10 +116,11 @@ for server, config in pairs(servers) do
 end
 
 -- =========================
--- Diagnostics config
+-- Configuración de diagnostics
 -- =========================
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
+  vim.lsp.diagnostic.on_publish_diagnostics,
+  {
     underline = true,
     update_in_insert = false,
     virtual_text = { spacing = 4, prefix = "●" },
@@ -123,6 +128,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
+-- Signos personalizados
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
