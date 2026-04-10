@@ -1,15 +1,13 @@
-$TTL    604800
-@       IN      SOA     laboratorio.com. admin.laboratorio.com. (
-                              3         ; Serial
-                         604800         ; Refresh
-                          86400         ; Retry
-                        2419200         ; Expire
-                         604800 )       ; Negative Cache TTL
-;
-; Servidores de nombre (NS)
-@       IN      NS      ns.laboratorio.com.
+echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf
 
-; Registros A (Nombre a IP)
-@       IN      A       10.10.10.1
-ns      IN      A       10.10.10.1
-servidor IN     A       10.10.10.1
+
+# Limpia reglas previas (opcional)
+sudo iptables -F
+sudo iptables -t nat -F
+
+# Crea la regla de NAT
+sudo iptables -t nat -A POSTROUTING -o enp0s8 -j MASQUERADE
+
+# Permite el paso de paquetes
+sudo iptables -A FORWARD -i enp0s9 -o enp0s8 -j ACCEPT
+sudo iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
