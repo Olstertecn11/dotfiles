@@ -7,7 +7,12 @@
   ],
   "emmet.includeLanguages": {
     "htmldjango": "html",
-    "blade": "html"
+    "blade": "html",
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact",
+    "vue-html": "html",
+    "razor": "html",
+    "vue": "html"
   },
   "zig.zls.path": "C:\\Users\\olste\\AppData\\Local\\coc\\extensions\\coc-zls-data\\zls_install\\zls.exe",
   "snippets.ultisnips.pythonPrompt": false,
