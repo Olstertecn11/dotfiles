@@ -1,110 +1,109 @@
-local status, packer = pcall(require, "packer")
-if (not status) then
-  print("Packer is not installed")
-  return
+-- 1. Autoinstalador automático de Lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.cmd [[packadd packer.nvim]]
+-- 2. Inicialización de los plugins con Lazy
+require("lazy").setup({
+  -- Infraestructura base
+  'nvim-lualine/lualine.nvim',
+  'nvim-lua/plenary.nvim',
+  'onsails/lspkind-nvim',
+  'neovim/nvim-lspconfig',
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
 
-packer.startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lualine/lualine.nvim' -- Statusline
-  use 'nvim-lua/plenary.nvim'     -- Common utilities
-  use 'onsails/lspkind-nvim'      -- vscode-like pictograms
-  use 'neovim/nvim-lspconfig'     -- LSP
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use "EdenEast/nightfox.nvim" -- Packer
+  -- Temas estéticos
+  "EdenEast/nightfox.nvim",
+  'folke/tokyonight.nvim',
+  'AlexvZyl/nordic.nvim',
+  { "scottmckendry/cyberdream.nvim" },
 
-  use {
+  -- Treesitter y Apariencia
+  {
     'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-  use 'kyazdani42/nvim-web-devicons' -- File icons
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
-  use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-
-  use 'norcalli/nvim-colorizer.lua'
-
-
-  use { 'neoclide/coc.nvim', branch = 'release' }
-  use 'folke/tokyonight.nvim'
-  use 'nvim-tree/nvim-tree.lua'
-  use 'preservim/tagbar'
-  use "folke/neodev.nvim"
-  use {
-    'numToStr/Comment.nvim',
-    config = function()
-      require('Comment').setup()
-    end
-  }
-
-  use('yuchanns/phpfmt.nvim')
-
-
-  use({
-    "startup-nvim/startup.nvim",
-    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  })
-
-
-  use {
+    build = ':TSUpdate',
+  },
+  'kyazdani42/nvim-web-devicons',
+  'norcalli/nvim-colorizer.lua',
+  'sphamba/smear-cursor.nvim',
+  {
     'echasnovski/mini.indentscope',
-    config = function()
-      require('mini.indentscope').setup({
-        -- Aquí puedes añadir cualquier configuración adicional que necesites
-      })
-    end
-  }
+    config = function() require('mini.indentscope').setup() end
+  },
 
+  -- Navegación y Búsqueda
+  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope-file-browser.nvim',
+  'nvim-tree/nvim-tree.lua',
 
-  use 'jwalton512/vim-blade'
-  use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons',
-    config = function()
-      require('bufferline').setup {}
-    end
-  }
+  -- Utilidades de edición
+  'windwp/nvim-autopairs',
+  'windwp/nvim-ts-autotag',
+  'folke/neodev.nvim',
+  { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
+  { 'kylechui/nvim-surround', version = "*" },
 
-  use({
-    "stevearc/aerial.nvim",
-    config = function()
-      require("aerial").setup()
-    end,
-  })
-
-
-
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-    config = function()
-      require 'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
-    end
-  }
-
-
-  use 'sphamba/smear-cursor.nvim'
-
-  use 'mfussenegger/nvim-dap'
-  use 'github/copilot.vim'
-  use({
+  -- Entorno PHP / Laravel / Blade
+  'yuchanns/phpfmt.nvim',
+  'jwalton512/vim-blade',
+  {
     "aurum77/live-server.nvim",
-    run = function()
-      require "live_server.util".install()
-    end,
+    build = function() require "live_server.util".install() end,
     cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
-  })
-  use({
-    "kylechui/nvim-surround",
-    tag = "*"
-  })
+  },
+  { 'github/copilot.vim', lazy = false },
+  'mfussenegger/nvim-dap',
 
-  use 'AlexvZyl/nordic.nvim'
-  use { "scottmckendry/cyberdream.nvim" }
+  -- UI y Layouts
+  { "startup-nvim/startup.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } },
+  { 
+    'akinsho/bufferline.nvim', 
+    version = "*", 
+    dependencies = 'nvim-tree/nvim-web-devicons', 
+    config = function() require('bufferline').setup {} end 
+  },
+  { 
+    "akinsho/toggleterm.nvim", 
+    version = '*', 
+    config = function() require("toggleterm").setup() end 
+  },
 
-  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end }
-end)
+  -- =========================================================================
+  -- EL NUEVO MOTOR EN RUST (Lazy lo maneja de forma perfecta de forma nativa)
+  -- =========================================================================
+  {
+    'saghen/blink.cmp',
+    dependencies = 'rafamadriz/friendly-snippets',
+    version = '*',
+    opts = {
+      keymap = { 
+        preset = 'default',
+        ['<C-space>'] = { 'show', 'show_documentation', 'hide' },
+        ['<CR>'] = { 'accept', 'fallback' },
+        ['<Tab>'] = { 'select_next', 'fallback' },
+        ['<S-Tab>'] = { 'select_prev', 'fallback' },
+      },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono'
+      },
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+      },
+      completion = {
+        documentation = { auto_show = true, auto_show_delay_ms = 200 },
+        ghost_text = { enable = true }
+      },
+    },
+  },
+})
