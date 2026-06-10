@@ -29,10 +29,55 @@ require("lazy").setup({
   { "scottmckendry/cyberdream.nvim" },
 
   -- Treesitter y Apariencia
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-  },
+{
+  "nvim-treesitter/nvim-treesitter",
+  branch = 'master',
+  build = ":TSUpdate",
+  lazy = false,
+  priority = 1000,
+
+  config = function()
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        "vue",
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "typescript",
+        "tsx",
+        "json",
+        "lua",
+        "vim",
+        "vimdoc",
+        "bash",
+        "markdown",
+        "markdown_inline",
+        "php",
+        "python",
+        "kotlin",
+      },
+
+      sync_install = true,
+      auto_install = false,
+
+      highlight = {
+        enable = true,
+        additional_vim_regex_highlighting = false,
+      },
+
+      indent = {
+        enable = false
+      },
+    })
+
+    vim.filetype.add({
+      extension = {
+        vue = "vue",
+      },
+    })
+  end,
+},
   'kyazdani42/nvim-web-devicons',
   'norcalli/nvim-colorizer.lua',
   'sphamba/smear-cursor.nvim',
@@ -102,7 +147,7 @@ require("lazy").setup({
       },
       completion = {
         documentation = { auto_show = true, auto_show_delay_ms = 200 },
-        ghost_text = { enable = true }
+        ghost_text = { enabled = true }
       },
     },
   },

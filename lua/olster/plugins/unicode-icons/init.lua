@@ -66,7 +66,6 @@ M.start_autocmd = function()
     callback = show_unicode_if_needed,
     desc = "Muestra iconos unicode flotantes al pasar el cursor sobre ellos",
   })
-  print("Unicode listener iniciado ✅")
 end
 
 return M
