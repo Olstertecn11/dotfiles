@@ -55,32 +55,46 @@ vim.cmd("filetype plugin indent on")
 
 -- Configuración específica por lenguaje
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = {
-    "lua",
-    "vue",
-    "html",
-    "css",
-    "scss",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "json",
-  },
-  callback = function()
-    vim.opt_local.autoindent = true
-    vim.opt_local.smartindent = true
-    vim.opt_local.expandtab = true
+	pattern = {
+		"lua",
+		"vue",
+		"html",
+		"css",
+		"scss",
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"json",
+		"blade",
+	},
+	callback = function()
+		vim.opt_local.autoindent = true
+		vim.opt_local.smartindent = true
+		vim.opt_local.expandtab = true
 
-    vim.opt_local.tabstop = 2
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.softtabstop = 2
-  end,
+		vim.opt_local.tabstop = 2
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.softtabstop = 2
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "php" },
+	callback = function()
+		vim.opt_local.autoindent = true
+		vim.opt_local.smartindent = true
+		vim.opt_local.expandtab = true
+
+		vim.opt_local.tabstop = 4
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.softtabstop = 4
+	end,
 })
 
 -- Solo si estás en Windows
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
-  vim.opt.shell = "powershell"
+	vim.opt.shell = "powershell"
 
-  vim.g.tagbar_ctags_bin = "C:\\Program Files\\ctags\\ctags.exe"
+	vim.g.tagbar_ctags_bin = "C:\\Program Files\\ctags\\ctags.exe"
 end

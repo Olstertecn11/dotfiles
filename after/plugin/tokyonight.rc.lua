@@ -1,25 +1,79 @@
 require("tokyonight").setup({
-  style = "storm",        -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
-  light_style = "day",    -- The theme is used when the background is set to light
-  transparent = true,     -- Enable this to disable setting the background color
-  terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
+  style = "night",
+  transparent = true,
+  terminal_colors = true,
+
   styles = {
     comments = { italic = true },
     keywords = { italic = true },
     functions = {},
     variables = {},
-    sidebars = "transparent",       -- style for sidebars, see below
-    floats = "transparent",         -- style for floating windows
+    sidebars = "transparent",
+    floats = "transparent",
   },
-  sidebars = { "qf", "help" },      -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-  day_brightness = 0.3,             -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-  hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-  dim_inactive = false,             -- dims inactive windows
-  lualine_bold = false,             -- When `true`, section headers in the lualine theme will be bold
-  on_colors = function(colors)
-  end,
-  on_highlights = function(highlights, colors)
+
+  sidebars = { "qf", "help", "terminal", "NvimTree" },
+  day_brightness = 0.3,
+  hide_inactive_statusline = false,
+  dim_inactive = false,
+  lualine_bold = false,
+
+  on_highlights = function(hl, c)
+    hl.BlinkCmpMenu = { bg = c.bg_dark, fg = c.fg }
+    hl.BlinkCmpMenuBorder = { fg = c.blue, bg = c.bg_dark }
+    hl.BlinkCmpDoc = { bg = c.bg_dark, fg = c.fg }
+    hl.BlinkCmpDocBorder = { fg = c.blue, bg = c.bg_dark }
+    hl.BlinkCmpSignatureHelp = { bg = c.bg_dark, fg = c.fg }
+    hl.BlinkCmpSignatureHelpBorder = { fg = c.magenta, bg = c.bg_dark }
+
+    hl.BlinkCmpLabel = { fg = c.fg }
+    hl.BlinkCmpLabelMatch = { fg = c.blue, bold = true }
+    hl.BlinkCmpKind = { fg = c.cyan }
+    hl.BlinkCmpSource = { fg = c.dark5 }
+    -- Vue / HTML tags
+    hl["@tag"] = { fg = c.blue }
+    hl["@tag.vue"] = { fg = c.blue1 }
+    hl["@tag.builtin"] = { fg = c.red }
+    hl["@tag.builtin.vue"] = { fg = c.red }
+
+    -- Delimitadores: < > </ />
+    hl["@tag.delimiter"] = { fg = c.dark5 }
+    hl["@tag.delimiter.vue"] = { fg = c.dark5 }
+
+    -- Props / atributos: :row, v-if, @click
+    hl["@tag.attribute"] = { fg = c.green1 }
+    hl["@tag.attribute.vue"] = { fg = c.green1 }
+    hl["@attribute"] = { fg = c.green1 }
+    hl["@attribute.vue"] = { fg = c.green1 }
+
+    -- Variables / propiedades
+    hl["@variable"] = { fg = c.fg }
+    hl["@variable.member"] = { fg = c.cyan }
+    hl["@property"] = { fg = c.cyan }
+    hl["@property.vue"] = { fg = c.cyan }
+
+    -- Funciones
+    hl["@function"] = { fg = c.blue }
+    hl["@function.call"] = { fg = c.blue }
+    hl["@function.method"] = { fg = c.blue }
+    hl["@function.method.call"] = { fg = c.blue }
+
+    -- Keywords / operadores
+    hl["@keyword"] = { fg = c.purple, italic = true }
+    hl["@keyword.conditional"] = { fg = c.purple, italic = true }
+    hl["@keyword.repeat"] = { fg = c.purple, italic = true }
+    hl["@operator"] = { fg = c.blue5 }
+
+    -- Strings / números / booleanos
+    hl["@string"] = { fg = c.green }
+    hl["@number"] = { fg = c.orange }
+    hl["@boolean"] = { fg = c.orange }
+
+    -- Tipos / constructores
+    hl["@type"] = { fg = c.yellow }
+    hl["@type.builtin"] = { fg = c.yellow }
+    hl["@constructor"] = { fg = c.magenta }
   end,
 })
 
-vim.cmd.colorscheme "tokyonight-night"
+vim.cmd.colorscheme("tokyonight-night")
